@@ -1,11 +1,14 @@
 <template>
-    <div>
-        <router-link :to="{ name: 'AddCake' }">Add a new cake</router-link>
+    <div class="container">
+        <div class="header">
+            <h1>Cakes App</h1>
+            <router-link :to="{ name: 'AddCake' }" class="link">Add a new cake</router-link>
+        </div>
         <div v-if="cakes.length === 0">
             Loading...
         </div>
-        <div v-else>
-            <div v-for="cake in cakes" :key="cake.id" @click="$router.push({ path: `/cakes/${cake.id}` })">
+        <div class="cakes" v-else>
+            <div class="cake" v-for="cake in cakes" :key="cake.id" @click="$router.push({ path: `/cakes/${cake.id}` })">
                 <h1>{{ cake.name }}</h1>
                 <img :src="cake.imageUrl" alt="">
             </div>
@@ -27,9 +30,3 @@
         },
     }
 </script>
-
-<style>
-    img {
-        width: 500px;
-    }
-</style>

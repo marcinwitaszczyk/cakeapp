@@ -1,5 +1,9 @@
 <template>
-    <div>
+    <div class="container">
+        <div class="back-button">
+            <router-link :to="{ name: 'CakesList' }" class="link">&larr; Go back</router-link>
+        </div>
+        <h1>Add a new cake</h1>
         <form accept-charset="utf-8" @submit.prevent="add">
             <div>
                 Name: <input type="text" name="name" v-model="form.name">
@@ -104,3 +108,48 @@
         },
     }
 </script>
+
+<style>
+    .back-button {
+        margin: 2rem 0;
+    }
+
+    input, select {
+        padding: 0.7rem 1.5rem;
+        border-radius: 5rem;
+        border: 1px solid #ccc;
+        display: block;
+        margin-top: .5rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    select {
+        background: #fff;
+        height: 2.3rem;
+    }
+
+    button {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0.7rem 1rem;
+        background: cornflowerblue;
+        color: white;
+        font-size: 1rem;
+        border-radius: 5rem;
+        border: none;
+        margin-top: 4rem;
+    }
+
+    form span {
+        color: red;
+        font-style: italic;
+        margin-top: .5rem;
+        display: block;
+    }
+
+    form div {
+        margin-bottom: 2rem;
+    }
+</style>
